@@ -1,0 +1,29 @@
+POST http://localhost:3003/user/signup 
+Content-Type: application/json
+
+{
+    "name": "Doracy",
+    "email": "doracy@gmail.com",
+    "password": "iamdoracynica"
+}
+
+###
+
+POST http://localhost:3003/user/login 
+Content-Type: application/json
+
+{
+    "email": "doracy@gmail.com",
+    "password": "iamdoracynica"
+}
+
+###
+
+POST http://localhost:3003/post/create
+Content-Type: application/json
+
+{
+    "photo": "https://static.wikia.nocookie.net/disney/images/9/96/Ariana_Grande_at_the_2020_Grammy_Awards.jpg/revision/latest?cb=20220417235314&path-prefix=pt-br", 
+    "description": "https://static.wikia.nocookie.net/disney/images/9/96/Ariana_Grande_at_the_2020_Grammy_Awards.jpg/revision/latest?cb=20220417235314&path-prefix=pt-br", 
+    "type": ""
+}
