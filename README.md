@@ -36,6 +36,7 @@ Tecnologias utilizadas: Jest, Node.JS, Knex, TypeScript, MySQL, SQL, Testes unit
 ## 🔗Link para Acessar
 
 - **Link da Documentação:** https://documenter.getpostman.com/view/20357881/UzQuN4r8
+- **Link Heroku:** https://labook-brenno-ambrozino.herokuapp.com
 
 ---
 
