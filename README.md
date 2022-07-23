@@ -49,9 +49,3 @@ Para Rodar o projeto, siga as seguintes etapas :
 - Rodar o comando "npm install" no terminal
 - Rodar o comando "npm run start" no terminal
 
-
----
-
-## 📝Sobre a Licença
-
-Este projeto esta sobe a licença [MIT](./LICENSE).
