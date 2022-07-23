@@ -18,7 +18,7 @@ Backend de uma rede social chamada Labook, que tem o objetivo de promover a cone
 
 Este é um projeto de Back-end desenvolvido no bootcamp da Labenu, cujo o principal objetivo é estudar e compreender: A produção de um Banco de Dados e a criação de Api's.
 
-Tecnologias utilizadas: Jest, Node.JS, Knex, TypeScript, MySQL, SQL, Testes unitários, Git e Github.
+Tecnologias utilizadas: Jest, Node.JS, Knex, TypeScript, MySQL, SQL, Git e Github.
 
 
 ## ☑️Requisitos de Funcionalidade
