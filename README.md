@@ -23,10 +23,21 @@ Tecnologias utilizadas: Jest, Node.JS, Knex, TypeScript, MySQL, SQL, Git e Githu
 
 ## ☑️Requisitos de Funcionalidade
 
-- [x] Cadastro
-- [x] Login
-- [x] Criar Post
-- [x] Buscar um Post por id
+- [x] **Cadastro**
+
+ Para o cadastro, o usuário deve fornecer seu nome, seu e-mail e uma senha. Além disso, esse endpoint já realiza o login do usuário, fornecendo seu token de autenticação no retorno da requisição.
+
+- [x] **Login**
+
+ Para realizar o login, basta informar o e-mail e a sua senha. O retorno contém o token de autenticação do usuário.
+
+- [x] **Criar Post**
+
+ O post é criado passando-se as informações de: foto, descrição, data de criação e tipo ("normal" ou "evento").
+
+- [x] **Buscar um Post por id**
+
+ Ao passar o id de um post, você obtém as informações a respeito daquele post
 
 ![image](https://user-images.githubusercontent.com/99096015/179253933-8e8fa386-29a5-4d74-b14c-894faadbdbcd.png) ![image](https://user-images.githubusercontent.com/99096015/179254048-fc1cf84d-f47a-4d2a-b7cc-7a40feeb4f21.png)
 
