@@ -23,6 +23,15 @@ export default class UserBusiness{
             throw new Error("Campos inválidos")
         }
 
+        if(email.indexOf("@") === -1) {
+            throw new Error("É necessário conter '@' no email")   
+        }
+
+        if(password.length < 6) {
+            throw new Error("A senha deve ter no mínimo 6 caracteres")
+            
+        }
+
         // conferir se o usuário existe
         const registeredUser = await this.userData.findByEmail(email)
         if(registeredUser){
@@ -64,20 +73,13 @@ export default class UserBusiness{
             throw new Error("Credenciais inválidas")
         }
 
-        const user: LoginUser = {
-            id: registeredUser.id,
-            name: registeredUser.name,
-            email: registeredUser.email,
-            password: registeredUser.password
-        }
-
-        const passwordIsCorrect = await this.hashManager.compare(password, user.password)
+        const passwordIsCorrect = await this.hashManager.compare(password, registeredUser.getPassword())
 
         if(!passwordIsCorrect){
             throw new Error("Credenciais inválidas")
         }
 
-        const token = this.authenticator.generateToken({id: user.id})
+        const token = this.authenticator.generateToken({id: registeredUser.getId()})
 
         return token
     }

@@ -20,9 +20,9 @@ export default class UserData extends BaseDataBase{
         }
     }
 
-    findByEmail = async(email: string) => {
+    findByEmail = async(email: string):Promise<User | undefined> => {
         try {
-            const queryResult:FindByEmailResponse = await this
+            const queryResult:User[] = await this
                 .connection(this.TABLE_NAME)
                 .select()
                 .where({email})
