@@ -1,4 +1,5 @@
 import UserBusiness from "../src/business/UserBusiness";
+import { LoginDTO } from "../src/types/loginDTO";
 import { SignupInputDTO } from "../src/types/signupInputDTO";
 import { AuthenticatorMock } from "./mocks/AuthenticatorMock";
 import { HashManagerMock } from "./mocks/HashManagerMock";
@@ -12,12 +13,12 @@ const userBusinessMock = new UserBusiness (
     new AuthenticatorMock()
 )
 
-describe("Testando o sign up", () => {
+describe("Testando o Sign Up", () => {
     test("Deve retornar erro quando o nome está vazio", async () => {
         try {
             const input: SignupInputDTO = {
                 name: "", 
-                email: "brenno@gmail.com",
+                email: "brennoambrozino@gmail.com",
                 password:"123456"
             }
             await userBusinessMock.signup(input)
@@ -32,7 +33,7 @@ describe("Testando o sign up", () => {
         try {
             const input: SignupInputDTO = {
                 name: "brenno", 
-                email: "brennogmail.com",
+                email: "brennoambrozinogmail.com",
                 password:"123456"
             }
             await userBusinessMock.signup(input)
@@ -47,7 +48,7 @@ describe("Testando o sign up", () => {
         try {
             const input: SignupInputDTO = {
                 name: "brenno", 
-                email: "brenno@gmail.com",
+                email: "brennoambrozino@gmail.com",
                 password:"12345"
             }
             await userBusinessMock.signup(input)
@@ -58,7 +59,7 @@ describe("Testando o sign up", () => {
         }
     })
 
-    test("Sucesso no cadastro e verificção de token", async () => {
+    test("Sucesso no cadastro e verificação de token", async () => {
         try {
             const input: SignupInputDTO = {
                 name: "brenno", 
@@ -67,6 +68,53 @@ describe("Testando o sign up", () => {
             }
             const accessToken = await userBusinessMock.signup(input)
             expect(accessToken).toEqual("token") 
+        } catch (error:any) {
+            console.log(error)
+        } finally {
+            expect.assertions(1)
+        }
+    })
+})
+
+describe("Testando o Login", () => {
+    test("Deve retornar erro quando o email for inválido", async () => {
+        try {
+            const input: LoginDTO = {
+                email: "brenno@gmail.com",
+                password: "123456"
+            }
+            await userBusinessMock.login(input)
+        } catch (error:any) {
+            expect(error.message).toEqual("Email inválido")
+        } finally {
+            expect.assertions(1)
+        }
+    })
+
+    test("Deve retornar erro quando a senha for inválida", async() => {
+        try {
+            const input: LoginDTO = {
+                email: "brennoambrozino@gmail.com",
+                password: "12345678"
+            }
+            await userBusinessMock.login(input)
+        } catch (error:any) {
+            expect(error.message).toEqual("Senha inválida")
+        } finally {
+            expect.assertions(1)
+        }
+    })
+
+    test("Sucesso no Login e verificação do token de acesso", async() => {
+        try {
+            const input: LoginDTO = {
+                email: "brennoambrozino@gmail.com",
+                password: "123456"
+            } 
+
+            const token = await userBusinessMock.login(input)
+            console.log(token)
+            expect(token).toEqual("token")
         } catch (error:any) {
             console.log(error)
         } finally {

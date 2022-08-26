@@ -70,13 +70,13 @@ export default class UserBusiness{
         const registeredUser = await this.userData.findByEmail(email)
 
         if(!registeredUser){
-            throw new Error("Credenciais inválidas")
+            throw new Error("Email inválido")
         }
 
         const passwordIsCorrect = await this.hashManager.compare(password, registeredUser.getPassword())
 
         if(!passwordIsCorrect){
-            throw new Error("Credenciais inválidas")
+            throw new Error("Senha inválida")
         }
 
         const token = this.authenticator.generateToken({id: registeredUser.getId()})

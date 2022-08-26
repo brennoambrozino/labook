@@ -13,7 +13,7 @@ export default class UserDataMock extends UserData {
     }
 
     findByEmail = async(email: string) => {
-        if(email === "user1@gmail.com") {
+        if(email === "brennoambrozino@gmail.com") {
             return UserMock
         } else {
             return undefined
