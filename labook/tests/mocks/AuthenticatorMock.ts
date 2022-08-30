@@ -11,8 +11,14 @@ export class AuthenticatorMock {
     getTokenData = (
         token:string
     ): authenticationData => {
-        return {
-            id: "id_mock"
+        if(token === "token"){
+            return {
+                id: "id_mock"
+            } 
+        } else {
+            return {
+                id: undefined
+            }
         }
     }
 }

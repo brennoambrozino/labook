@@ -14,7 +14,7 @@ const userBusinessMock = new UserBusiness (
 )
 
 describe("Testando o Sign Up", () => {
-    test("Deve retornar erro quando o nome está vazio", async () => {
+    test("Deve retornar erro quando o nome estiver vazio", async () => {
         try {
             const input: SignupInputDTO = {
                 name: "", 
@@ -69,7 +69,6 @@ describe("Testando o Sign Up", () => {
             const accessToken = await userBusinessMock.signup(input)
             expect(accessToken).toEqual("token") 
         } catch (error:any) {
-            console.log(error)
         } finally {
             expect.assertions(1)
         }
@@ -113,10 +112,8 @@ describe("Testando o Login", () => {
             } 
 
             const token = await userBusinessMock.login(input)
-            console.log(token)
             expect(token).toEqual("token")
         } catch (error:any) {
-            console.log(error)
         } finally {
             expect.assertions(1)
         }

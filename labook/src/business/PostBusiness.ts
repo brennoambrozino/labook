@@ -7,6 +7,7 @@ import { IdGenerator } from "../services/IdGenerator"
 import { authenticationData } from "../types/authData"
 import { createInputDTO } from "../types/createInputDTO"
 import { getPostDTO } from "../types/getPostDTO"
+import { POST_TYPES } from "../types/POST_TYPES"
 
 export default class PostBusiness{
 
@@ -27,6 +28,10 @@ export default class PostBusiness{
         const tokenData:authenticationData = this.authenticator.getTokenData(token)
         const author_id = tokenData.id
 
+        if (!author_id) {
+            throw new Error("Token Inválido")
+        }
+
         const id:string = this.idGenerator.generateId() 
 
         const post = new Post(
@@ -46,7 +51,7 @@ export default class PostBusiness{
        const post = await this.postData.findById(id)
 
        if(!post) {
-        throw new Error("Erro ao encontrar o post")
+        throw new Error("Erro ao encontrar o post, verifique se o 'id' do post está correto")
        }
 
        return post
