@@ -1,5 +1,6 @@
 import Post from "../model/Post"
 import { findByIdResponse } from "../types/findByIdResponse"
+import { getPostDTO } from "../types/getPostDTO"
 import { BaseDataBase } from "./BaseDataBase"
 
 export default class PostData extends BaseDataBase{
@@ -19,7 +20,7 @@ export default class PostData extends BaseDataBase{
         }
     }
 
-    findById = async(id:string) => {
+    findById = async(id:string): Promise<getPostDTO | undefined> => {
         try {
             const queryResult: findByIdResponse = await this
             .connection(this.TABLE_NAME)
